@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hangman</title>
+    </head>
+    <body>
+        <h1>{{ message }}</h1>
+        <p> {% for letter in game.getCurrentWord %}
+            _
+            {% endfor %} </p>
+
+        <form action='/guess' method='post'>
+            <label for='letter'>Guess a letter</label>
+            <input id='letter' name='letter' type='text'>
+            <button type='submit'>Guess</button>
+        </form>
+        <h1>Wrong guesses</h1>
+        <p> {% for letter in game.getGuessWrongChar %}
+            {{ letter }}
+            {% endfor %} </p>
+    </body>
+</html>
